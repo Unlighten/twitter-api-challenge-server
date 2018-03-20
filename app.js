@@ -1,17 +1,15 @@
 require('dotenv').config()
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 const express = require('express')
 const app = express()
-
-var http = require('http').Server(app)
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 
 
 app.use(bodyParser.json())
 app.use('/', require('./routes/tweets'))
 
 
-http.listen(port, () => {
+app.listen(port, () => {
   console.log('server is up:', port)
 })
