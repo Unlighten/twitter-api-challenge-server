@@ -20,7 +20,7 @@ router.post("/", (req, res) => {
 
   twitterAccount.get('search/tweets', {count: 100, q: '#ign', lang: 'en', exclude: "retweets"})
   .then((tweet) => {
-    let tweetLength = tweet.statuses.tweetLength
+    let tweetLength = tweet.statuses.length
 
     for (let x = 0; x < tweetLength; x++) {
       tweets.push({tweet: tweet.statuses[x].text})
