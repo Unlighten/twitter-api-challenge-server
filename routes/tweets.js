@@ -1,3 +1,6 @@
+const express = require('express')
+const app = express()
+
 var router = require('express').Router()
 var Twitter = require('twitter')
 var tweets = []
@@ -9,11 +12,7 @@ var twitterAccount = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
 
-router.use((req, res, next) => {
-  res.header('access-control-allow-origin', '*')
-  res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  next()
-})
+app.use(require('../middleware/headers'));
 
 router.post("/", (req, res) => {
   let tweets = []
