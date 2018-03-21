@@ -12,7 +12,13 @@ var twitterAccount = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
 
-app.use(require('../middleware/headers'));
+// app.use(require('../middleware/headers'));
+
+app.exports = ((req, res, next) => {
+  res.header('access-control-allow-origin', '*')
+  res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
+})
 
 router.post("/", (req, res) => {
   let tweets = []
