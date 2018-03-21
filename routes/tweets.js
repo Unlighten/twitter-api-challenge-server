@@ -20,7 +20,7 @@ router.use((req, res, next) => {
   next()	
 })
 
-router.post("/", (req, res) => {
+router.get("/", (req, res) => {
   let tweets = []
 
   twitterAccount.get('search/tweets', {count: 100, q: '#ign', lang: 'en', exclude: "retweets"})
