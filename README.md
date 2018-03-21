@@ -1,6 +1,7 @@
 # twitter-api-challenge-server
 
-This is a server built for using the twitter API
+This is an express server built for using the Twitter API
 
 npm install
+
 npm start or nodemon app.js
