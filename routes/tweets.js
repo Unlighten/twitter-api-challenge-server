@@ -1,5 +1,5 @@
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
 
 var router = require('express').Router()
 var Twitter = require('twitter')
@@ -14,10 +14,10 @@ var twitterAccount = new Twitter({
 
 // app.use(require('../middleware/headers'));
 
-app.exports = ((req, res, next) => {
-  res.header('access-control-allow-origin', '*')
-  res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  next()
+router.use((req, res, next) => {
+  res.header('access-control-allow-origin', '*')	
+  res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept')	
+  next()	
 })
 
 router.post("/", (req, res) => {
